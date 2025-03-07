@@ -259,7 +259,7 @@ export WEATHER_API_KEY="${天气 API key}"
 
 # 数据库配置
 # export POSTGRES_SERVER="127.0.0.1"  # 数据库 IP，按需配置
-export POSTGRES_PASSWORD=""  # 数据库密码，自行填写
+export POSTGRES_PASSWORD="123456"  # 数据库密码，自行填写
 # export POSTGRES_DB="streamer_sales_db"  # 数据库名字，按需配置
 
 bash deploy.sh base
@@ -948,7 +948,7 @@ sovits_path dir = weights/gpt_sovits_weights/star/艾丝妲_e25_s925.pth
 ref_wav_path = weights/gpt_sovits_weights/star/参考音频/激动说话-列车巡游银河，我不一定都能帮上忙，但只要是花钱能解决的事，尽管和我说吧。.wav
 prompt_text = 列车巡游银河，我不一定都能帮上忙，但只要是花钱能解决的事，尽管和我说吧。
 ====================================
-``` 
+```
 -->
 
 ## 📧 后记

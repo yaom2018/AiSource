@@ -213,8 +213,15 @@ pip install -r requirements.txt
 
 <details close>
 <summary><b>前后端分离版本 ( > v0.7.1 )</b>：适合分布式部署，可以配置负载均衡，更适合生产环境。</summary>
-
 **注意**：每个服务都要用一个 terminal 去启动
+
+conda activate streamer-sales-x 
+
+cd Streamer-Sales
+
+ssh -CNg -L 5173:127.0.0.1:5173 root@ssh.intern-ai.org.cn -p 40018
+
+
 
 1. TTS 服务
 
@@ -253,13 +260,14 @@ bash deploy.sh llm-4bit
 启用中台服务需要先配置数据库环境，详见 [数据库环境搭建](./doc/database/README.md)
 
 ```bash
+
 # Agent Key (如果没有请忽略)
 export DELIVERY_TIME_API_KEY="${快递 EBusinessID},${快递 api_key}"
 export WEATHER_API_KEY="${天气 API key}"
 
 # 数据库配置
 # export POSTGRES_SERVER="127.0.0.1"  # 数据库 IP，按需配置
-export POSTGRES_PASSWORD=""  # 数据库密码，自行填写
+export POSTGRES_PASSWORD="123456"  # 数据库密码，自行填写
 # export POSTGRES_DB="streamer_sales_db"  # 数据库名字，按需配置
 
 bash deploy.sh base

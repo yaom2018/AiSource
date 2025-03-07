@@ -32,11 +32,11 @@ psql --version
 默认管理员用户 postgres 需要分配的密码才能连接到数据库。要设置密码，请执行以下操作：
 
 1. 启动 postgres 服务：`sudo service postgresql start`
-2. 输入命令：`sudo passwd postgres`
-3. 系统将提示你输入新密码。
+2. 输入命令：`sudo passwd postgres`  123456
+3. 系统将提示你输入新密码。 service postgresql restart
 4. 关闭并重新打开终端。
 5. 连接到 postgres 服务，并打开 psql shell：`sudo -u postgres psql`，或者临时切换用户的方法进入： `su - postgres && psql`
-6. 成功输入 psql shell 后，将显示更改为如下所示的命令行：`postgres=#`
+6. 输入 psql 后，将显示更改为如下所示的命令行：`postgres=#`
 
 ## 设置数据库用户名密码
 
@@ -44,13 +44,17 @@ psql --version
 
 ```bash
 sudo -u postgres psql
+psql
 # 会出现 postgres=# 然后输入，xxx 就是密码，后续连接用这个密码，最后的 ; 不要漏了！
-alter role postgres with password 'xxx';
+alter role postgres with password '123456';
+exit
+logout
 ```
 
 ## 访问
 
 - 修改数据库访问权限配置文件 : `sudo vim /etc/postgresql/16/main/pg_hba.conf`
+- sudo vi /var/lib/pgsql/15/data/pg_hba.conf
 
 ```diff
 -local   all             postgres                                peer
@@ -64,6 +68,7 @@ host    all             all             0.0.0.0/0               scram-sha-256
 ```
 
 - 修改 数据库服务器参数配置 `sudo vim /etc/postgresql/16/main/postgresql.conf`
+- sudo vi /var/lib/pgsql/15/data/postgresql.conf
 
 在 `# - Connection Settings -` 的 `#listen_addresses = 'localhost'` 前加入：
 
@@ -75,6 +80,7 @@ listen_addresses = '*'
 
 ```bash
 sudo service postgresql restart
+sudo systemctl restart postgresql-15
 ```
 
 ## 新建数据库
@@ -85,6 +91,9 @@ sudo service postgresql restart
 
 ```bash
 sudo -u postgres psql
+su - postgres && psql
+
+psql
 ```
 
 2. 创建数据库

@@ -15,7 +15,9 @@ from ...web_configs import WEB_CONFIGS
 
 
 async def get_llm_product_prompt_base_info():
-    # 加载对话配置文件
+    # 异步加载对话配置文件，该文件包含系统提示词、输入模板和产品信息结构模板等信息
+    dataset_yaml = await get_llm_product_prompt_base_info()
+
     with open(WEB_CONFIGS.CONVERSATION_CFG_YAML_PATH, "r", encoding="utf-8") as f:
         dataset_yaml = yaml.safe_load(f)
 
