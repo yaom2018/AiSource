@@ -33,9 +33,11 @@ class GenDigitalHumanVideoItem(BaseModel):
 
 
 async def gen_tts_and_digital_human_video_app(streamer_id: int, sales_doc: str):
-    logger.info(sales_doc)
+    logger.info(f"gen_tts_and_digital_human_video_app sales_doc={sales_doc}")
 
     request_id = str(uuid.uuid1())
+    logger.info(f"gen_tts_and_digital_human_video_app request_id={request_id}")
+    
     sentence_id = 1  # 直接推理，所以设置成 1
     user_id = "123"
 
