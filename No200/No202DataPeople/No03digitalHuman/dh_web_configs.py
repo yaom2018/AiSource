@@ -19,7 +19,7 @@ class WebConfigs:
     IMAGES_DIR = "images"
 
     # 数字人文件
-    STREAMER_FILE_DIR = "digital_human"
+    STREAMER_FILE_DIR = "No51midData"
     STREAMER_INFO_FILES_DIR = "streamer_info_files"
 
     # ASR文件
@@ -81,7 +81,7 @@ class WebConfigs:
     DIGITAL_HUMAN_GEN_PATH: str = r"./work_dirs/digital_human"
     DIGITAL_HUMAN_MODEL_DIR: str = r"./weights/digital_human_weights/"
     DIGITAL_HUMAN_BBOX_SHIFT: int = 0
-    DIGITAL_HUMAN_VIDEO_PATH: str = rf"{SERVER_FILE_ROOT}/{STREAMER_FILE_DIR}/{STREAMER_INFO_FILES_DIR}/lelemiao.mp4"
+    DIGITAL_HUMAN_VIDEO_PATH: str = rf"./{STREAMER_FILE_DIR}/{STREAMER_INFO_FILES_DIR}/lelemiao.mp4"
     DIGITAL_HUMAN_VIDEO_OUTPUT_PATH: str = rf"{SERVER_FILE_ROOT}/{STREAMER_FILE_DIR}/vid_output"
 
     DIGITAL_HUMAN_FPS: str = 25

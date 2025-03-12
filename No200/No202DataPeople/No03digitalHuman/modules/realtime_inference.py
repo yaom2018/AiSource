@@ -105,7 +105,8 @@ def load_pose_model(model_dir):
         local_dir=Path(model_dir).joinpath("dwpose"),
     )
 
-    config_file = r"./server/digital_human/modules/musetalk/utils/dwpose/rtmpose-l_8xb32-270e_coco-ubody-wholebody-384x288.py"
+    # config_file = r"./server/digital_human/modules/musetalk/utils/dwpose/rtmpose-l_8xb32-270e_coco-ubody-wholebody-384x288.py"
+    config_file = r"./No03digitalHuman/modules/musetalk/utils/dwpose/rtmpose-l_8xb32-270e_coco-ubody-wholebody-384x288.py"
     pose_model = init_model(config_file, dw_pose_path, device="cuda")
 
     return pose_model
@@ -397,7 +398,11 @@ class Avatar:
         os.system(cmd_combine_audio)
 
         logger.info("Remove tmp files...")
-        os.remove(f"{self.avatar_path}/{tmp_tag}.mp4")
+        # 检查文件是否存在
+        tmp_mp4_path = f"{self.avatar_path}/{tmp_tag}.mp4"
+        if os.path.exists(tmp_mp4_path):
+            os.remove(tmp_mp4_path)
+            # os.remove(f"{self.avatar_path}/{tmp_tag}.mp4")
         shutil.rmtree(f"{self.avatar_path}/{tmp_tag}")
 
         # 保存好之后写一个文件，防止在没保存好的时候直接 push 到前端了
