@@ -1,6 +1,6 @@
 from pathlib import Path
 from .realtime_inference import DIGITAL_HUMAN_HANDLER, gen_digital_human_preprocess, gen_digital_human_video
-from ...web_configs import WEB_CONFIGS
+from ..dh_web_configs import WEB_CONFIGS
 
 
 async def gen_digital_human_video_app(stream_id, audio_path, save_tag):
