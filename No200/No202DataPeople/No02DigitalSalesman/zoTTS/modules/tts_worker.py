@@ -1,7 +1,7 @@
 from pathlib import Path
 
 
-from ...web_configs import WEB_CONFIGS
+from ..tts_web_configs import WEB_CONFIGS
 from .gpt_sovits.inference_gpt_sovits import gen_tts_wav, get_tts_model
 
 if WEB_CONFIGS.ENABLE_TTS:
