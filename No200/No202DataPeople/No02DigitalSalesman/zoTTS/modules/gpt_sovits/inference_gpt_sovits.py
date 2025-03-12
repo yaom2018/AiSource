@@ -23,7 +23,7 @@ from transformers.models.bert.tokenization_bert_fast import BertTokenizerFast
 
 from utils import HParams
 
-from ....web_configs import WEB_CONFIGS
+from ...tts_web_configs import WEB_CONFIGS
 from .AR.models.t2s_lightning_module import Text2SemanticLightningModule
 from .module import cnhubert
 from .module.cnhubert import CNHubert
