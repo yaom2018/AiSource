@@ -17,7 +17,7 @@ import wget
 from loguru import logger
 from tqdm import tqdm
 
-from ...web_configs import WEB_CONFIGS
+from ..dh_web_configs import WEB_CONFIGS
 from .musetalk.utils.blending import get_image_blending, get_image_prepare_material, init_face_parsing_model
 from .musetalk.utils.preprocessing import get_landmark_and_bbox, read_imgs
 from .musetalk.utils.utils import datagen, load_all_model

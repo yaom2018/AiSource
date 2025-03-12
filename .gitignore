@@ -26,6 +26,8 @@ share/python-wheels/
 *.egg
 MANIFEST
 No200/No202DataPeople/No02TTS/weights/
+No200/No202DataPeople/No03digitalHuman/modules/musetalk/whisper/
+No200/No202DataPeople/weights/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

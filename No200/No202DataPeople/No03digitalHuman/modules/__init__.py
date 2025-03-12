@@ -1,5 +1,5 @@
 from torch import hub
-from ...web_configs import WEB_CONFIGS
+from ..dh_web_configs import WEB_CONFIGS
 from pathlib import Path
 
 # 部分模型会使用 torch download 下载，需要设置路径
