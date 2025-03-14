@@ -32,6 +32,10 @@ def setup_ffmpeg_env(model_dir):
     ffmpeg_root = Path(model_dir).joinpath(f"drivers").absolute()
     Path(ffmpeg_root).mkdir(exist_ok=True, parents=True)
 
+    logger.info(f"ffmpeg_file_name==>>>ffmpeg_dir_path root: {ffmpeg_file_name}")
+    logger.info(f"ffmpeg_root==>>>ffmpeg_dir root: {ffmpeg_root}")
+    logger.info(f"model_dir==>>>ffmpeg_dir root: {model_dir}")
+
     ffmpeg_dir = None
     for ffmpeg_dir_path in Path(ffmpeg_root).iterdir():
         if not ffmpeg_dir_path.is_dir():
@@ -211,7 +215,7 @@ class Avatar:
 
     def init(self, vae_model, face_parsing_model):
         need_to_prepare = False
-
+        logger.info(f"self.avatar_path = {self.avatar_path}. ")  
         if self.preparation_force and os.path.exists(self.avatar_path):
             shutil.rmtree(self.avatar_path)
             need_to_prepare = True
