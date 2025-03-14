@@ -2,7 +2,7 @@
 conda activate streamer-sales-x
 cd /root/AiSource/No200/No202DataPeople/
 
- uvicorn No03digitalHuman.digital_human_server:app --host 0.0.0.0 --port 8002 # digital human
+uvicorn No03digitalHuman.digital_human_server:app --host 0.0.0.0 --port 8002 # digital human
 
 2.用到了comfui生成的视频文件：./No51midData/streamer_info_files/lelemiao.mp4
 
@@ -12,11 +12,3 @@ cd /root/AiSource/No200/No202DataPeople/
 
 4.执行接口调用
 http://0.0.0.0:8002/digital_human/gen
-
-5.如果在执行过程中出现ffmpeg错误
-AiSource/No200/No202DataPeople/weights/digital_human_weights/drivers/ffmpeg-release-amd64-static.tar.xz 
-一定解压此文件，否则报错
-
-apt install -y software-properties-common
- pip uninstall -y ffmpeg ffmpeg-python
- pip install ffmpeg-python
