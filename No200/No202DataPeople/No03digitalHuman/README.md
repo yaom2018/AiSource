@@ -12,3 +12,7 @@ uvicorn No03digitalHuman.digital_human_server:app --host 0.0.0.0 --port 8002 # d
 
 4.执行接口调用
 http://0.0.0.0:8002/digital_human/gen
+
+5.当出现cl错误时，查看 /root/AiSource/No200/No202DataPeople/weights/digital_human_weights/drivers/ffmpeg-7.0.2-amd64-static
+目录下ffmpeg是否存在，不存在则下载。这个地方花费了4天时间，快要崩溃了；这也是不懂ffmpeg的原因。
+
