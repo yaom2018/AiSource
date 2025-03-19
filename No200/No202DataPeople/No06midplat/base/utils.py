@@ -27,9 +27,9 @@ from pydantic import BaseModel
 from sqlmodel import Session, select
 from tqdm import tqdm
 
-from server.base.models.user_model import UserInfo
+from No06midplat.base.models.user_model import UserInfo
 
-from ..tts.tools import SYMBOL_SPLITS, make_text_chunk
+from ..tools import SYMBOL_SPLITS, make_text_chunk
 from ..web_configs import API_CONFIG, WEB_CONFIGS
 from .database.init_db import DB_ENGINE
 from .models.product_model import ProductInfo
