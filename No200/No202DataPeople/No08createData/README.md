@@ -203,6 +203,27 @@ dataset = load_dataset("imdb", split="train[:1000]")  # 加载前1000条样本
 
 
 
+### 3.3 数据增强
+
+根据业务数据特性进行数据增强，使得描述更加清楚。
+
+[数据增强](https://www.bilibili.com/video/BV13aQJY5E1H/?spm_id_from=333.337.search-card.all.click&vd_source=53c8f153d9fee3c0f48b1468ba6b99f5)
+
+
+
+## 4 优化和建议
+
+[如何整理训练数据以及微调优化建议](https://www.bilibili.com/video/BV1vrksYgEP9/?spm_id_from=333.337.search-card.all.click&vd_source=53c8f153d9fee3c0f48b1468ba6b99f5)
+
+LLM 模型微调数据集怎么整理 ?
+
+1.微调数据集应该弄成什么样?
+2.可不可以让AI帮我整理数据?
+3.为什么我的微调效果不好?
+4.业务场景中微调数据怎么来?
+
+
+
 
 
 参考：

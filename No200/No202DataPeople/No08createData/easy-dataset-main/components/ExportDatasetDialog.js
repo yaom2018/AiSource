@@ -133,7 +133,8 @@ const ExportDatasetDialog = ({ open, onClose, onExport, projectId }) => {
 
         // 如果包含思维链字段，添加到示例中
         if (includeCOT) {
-            example[cotField] = "思维链过程内容";
+            // example[cotField] = "思维链过程内容";
+            example[cotField] = "系统提示词";
         }
 
         if (includeLabels) {
