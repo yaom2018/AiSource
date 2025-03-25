@@ -31,6 +31,9 @@ No200/No202DataPeople/weights/
 No200/No202DataPeople/work_dirs/
 No200/No202DataPeople/No09origin/
 No200/No202DataPeople/No004ASR/weights
+**/node_modules/
+**/local-db/
+**/.next/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
