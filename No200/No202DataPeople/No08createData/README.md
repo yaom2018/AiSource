@@ -196,10 +196,64 @@ dataset = load_dataset("imdb", split="train[:1000]")  # 加载前1000条样本
 * 已经有整理出来的数据集了，想有一个批量管理数据集的地方，可以进行标注和验证。
 * 对于数据集有细分领域的需求，不知道如何去构建领域标签。
 * 想从一个格式的数据集转换成另一个格式的数据集，不知道怎么转换。
+* 
 
 ### 3.2 easy-dataset 开源框架
 
-[easy-dataset](https://github.com/ConardLi/easy-dataset/blob/main/README.zh-CN.md)
+ [GitHub 地址 easy-dataset](https://github.com/ConardLi/easy-dataset/blob/main/README.zh-CN.md)
+
+​        Easy Dataset 是一个专为创建大型语言模型（LLM）微调数据集而设计的应用程序。它提供了直观的界面，用于上传特定领域的文件，智能分割内容，生成问题，并为模型微调生成高质量的训练数据。
+
+通过 Easy Dataset，您可以将领域知识转化为结构化数据集，兼容所有遵循 OpenAI 格式的 LLM API，使微调过程变得简单高效。
+
+#### 3.2.1 实践方法--使用 NPM 安装
+
+克隆仓库：
+
+```
+   git clone https://github.com/ConardLi/easy-dataset.git 
+   也可以使用我下载好的
+   
+   cd easy-dataset
+```
+
+安装依赖：
+
+```
+   npm install
+```
+
+启动开发服务器：
+
+```
+   npm run build
+
+   npm run start
+```
+
+
+
+#### 3.2.2 将旅游的PDF拆解为一问一答
+
+目录： ../static/杭州攻略.pdf
+
+根据这个说明一步步做会生成得到的数据集：[B站链接](https://www.bilibili.com/video/BV1piQwYmEb3/?spm_id_from=333.337.search-card.all.click&vd_source=53c8f153d9fee3c0f48b1468ba6b99f5)
+
+使用自定义的格式导出数据集：
+
+![image-20250326143255877](D:\302ShuSheng\AiSource\No200\No202DataPeople\No08createData\image-20250326143255877.png)
+
+
+
+得到了数据集：
+
+![image-20250326143341580](D:\302ShuSheng\AiSource\No200\No202DataPeople\No08createData\image-20250326143341580.png)
+
+这里可以看到生成的数据以及非常ok了，对比了pdf几组数据已经非常可用了；
+
+数据路径：..static/datasets-1742810712416-alpaca-2025-03-26.json
+
+但这种生成数据只有一个来回也就是不能连续的进行问题询问，这个时候我们需要数据增强；
 
 
 
@@ -208,6 +262,12 @@ dataset = load_dataset("imdb", split="train[:1000]")  # 加载前1000条样本
 根据业务数据特性进行数据增强，使得描述更加清楚。
 
 [数据增强](https://www.bilibili.com/video/BV13aQJY5E1H/?spm_id_from=333.337.search-card.all.click&vd_source=53c8f153d9fee3c0f48b1468ba6b99f5)
+
+
+
+
+
+
 
 
 
