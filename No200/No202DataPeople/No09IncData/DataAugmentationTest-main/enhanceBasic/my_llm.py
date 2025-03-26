@@ -3,8 +3,8 @@ from langchain_openai import ChatOpenAI
 
 # 模型全局参数配置  根据自己的实际情况进行调整
 # openai模型相关配置 根据自己的实际情况进行调整
-OPENAI_API_BASE = "https://api.wlai.vip/v1"
-OPENAI_CHAT_API_KEY = "sk-hOUvWg4oXZJxjbiYHEMLaVGz1rf6cuWQaUjXXzXjwTVQPXYP"
+OPENAI_API_BASE = "https://api.fe8.cn/v1"
+OPENAI_CHAT_API_KEY = "sk-IWljWCnBeSGcg1SjQdNGeYVmQNWfE7YXy6I7FeBduRXkDYIh"
 OPENAI_CHAT_MODEL = "gpt-4o-mini"
 # 非gpt大模型相关配置(oneapi方案 通义千问为例) 根据自己的实际情况进行调整
 ONEAPI_API_BASE = "http://139.224.72.218:3000/v1"

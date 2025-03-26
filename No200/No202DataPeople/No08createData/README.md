@@ -189,7 +189,7 @@ dataset = load_dataset("imdb", split="train[:1000]")  # 加载前1000条样本
 
 ## 3 基于垂直领域文献合成数据集
 
-## 3.1 目前的做法
+### 3.1 目前的做法
 
 * 完全不知道怎么做，目前纯人工去做，想提高效率。
 * 将文档丢给AI，使用prompt让AI生成，效果差。
@@ -283,7 +283,7 @@ dataset = load_dataset("imdb", split="train[:1000]")  # 加载前1000条样本
 
 
 
-#### 3.3.2 使用
+#### 3.3.2 环境安装
 
 下面这个案例以预定酒店场景使用大模型进行数据增强：
 
@@ -291,9 +291,95 @@ dataset = load_dataset("imdb", split="train[:1000]")  # 加载前1000条样本
 (2)补充一定比例的多轮问答和结束语对话
 (3)补充按酒店名(简称)、价格上限查询等对话
 
+创建环境：安装miniconda环境
+
+```bash
+conda create -n incdata python=3.11
+
+conda activate incdata 
+
+# 程序运行环境
+pip install -r requirements.txt
+```
 
 
 
+
+
+#### 3.3.3 补充上下文
+
+使用enhanceBasic目录中脚本：
+
+```java
+(1)将原始数据中设施相关的说法，改为更口语化的表达
+(2)在原始数据中，补充针对上文已推荐的酒店的问答，如：“XXX多少钱”，“XXX地址在哪”
+(3)在原始数据中，补充针对上文已推荐的酒店的比较型问答，如：“哪个更便宜”
+(4)在原始数据中，补充结束语，如：“就住XXX吧”“祝您入住愉快”
+打开命令行终端，运行如下命令进行测试
+cd enhanceBasic
+mkdir enhanced_data
+python enhance.py
+```
+
+
+
+运行时如果出现下面的错误：
+
+```bash
+[(D:\00Program\miniconda3\incdata) PS D:\302ShuSheng\AiSource\No200\No202DataPeople\No09IncData\DataAugmentationTest-main\enhanceBasic> python enhance.py
+Traceback (most recent call last):
+  File "DataAugmentationTest-main\enhanceBasic\enhance.py", line 21, in <module>
+    rewriter = UtteranceRewriter()
+               ^^^^^^^^^^^^^^^^^^^
+  File "DataAugmentationTest-main\enhanceBasic\rewrite.py", line 32, in __init__
+    self.robust_parser = OutputFixingParser.from_llm(parser=self.output_parser, llm=self.llm)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "Lib\site-packages\langchain\output_parsers\fix.py", line 62, in from_llm
+    return cls(parser=parser, retry_chain=chain, max_retries=max_retries)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "incdata\Lib\site-packages\langchain_core\load\serializable.py", line 125, in __init__
+    super().__init__(*args, **kwargs)
+  File "incdata\Lib\site-packages\pydantic\main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Can't instantiate abstract class RunnableSerializable[OutputFixingParserRetryChainInput, str] with abstract method invoke] 
+```
+
+
+
+请运行
+
+```bash
+pip install --upgrade langchain langchain-core pydantic
+
+
+```
+
+
+
+生成后和生成前数据对比，补充的还蛮自然：
+
+![image-20250326200048315](D:\302ShuSheng\AiSource\No200\No202DataPeople\No08createData\easy-dataset-main\pic\image-20250326200048315.png)
+
+
+
+ #### 3.2.3  另外可以抽出价格上下浮动的工具
+
+使用enhanceMore的脚本：
+
+```
+(1)限制价格上/下界的查询 
+(2)限制价格区间的查询 
+(3)组合价格与其他条件的查询 
+(4)按酒店名称查询（包括用户不说酒店全名的情况） 打开命令行终端，运行如下命令进行测试
+cd enhanceMore
+python generate_by_filter_search.py
+python generate_by_hotel_name.py
+```
+
+
+
+大家看到这里应该有个大概的Image，微调数据的来源有多种多样，这就需要根据我们的业务来使用一种或者多种最终达到训练出很好的微调模型效果。
 
 
 
@@ -305,7 +391,13 @@ dataset = load_dataset("imdb", split="train[:1000]")  # 加载前1000条样本
 
 
 
-## 4 优化和建议
+## 4 总结
+
+​        至此，大家脑海中应已初步形成一个概念：微调数据来源丰富多样，我们需依据具体业务场景，灵活选用一种或多种数据来源，以此训练出性能卓越的微调模型。
+
+
+
+### 5 思考
 
 [如何整理训练数据以及微调优化建议](https://www.bilibili.com/video/BV1vrksYgEP9/?spm_id_from=333.337.search-card.all.click&vd_source=53c8f153d9fee3c0f48b1468ba6b99f5)
 
