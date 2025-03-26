@@ -1,4 +1,4 @@
-# 微调训练数据集
+# 如何做成微调训练数据集
 
 ## 1 概念
 
@@ -13,7 +13,7 @@
 
 ## 2 获取公开数据集
 
-## 2.1 HuggingFace
+### 2.1 HuggingFace
 
 **平台特性**：全球最大 AI 社区提供的标准化数据集库
 **访问方式**：
@@ -42,7 +42,7 @@ dataset = load_dataset("imdb")  # 直接加载数据集
 
 
 
-## 2.2 Kaggle
+### 2.2 Kaggle
 
 **平台特性**：全球最大数据科学竞赛平台
 **访问方式**：
@@ -69,7 +69,7 @@ dataset = load_dataset("imdb")  # 直接加载数据集
 
 
 
-## 2.3 Google Dataset Search
+### 2.3 Google Dataset Search
 
 **平台特性**：跨平台数据集搜索引擎
 **访问地址**：https://datasetsearch.research.google.com/
@@ -88,7 +88,7 @@ dataset = load_dataset("imdb")  # 直接加载数据集
 
 
 
-## 2.4 GitHub 开源项目 awesome-public-datasets
+### 2.4 GitHub 开源项目 awesome-public-datasets
 
 **项目特性**：人工精选数据集导航仓库
 **访问地址**：https://github.com/awesomedata/awesome-public-datasets
@@ -107,7 +107,7 @@ dataset = load_dataset("imdb")  # 直接加载数据集
 
 
 
-## 2.5 OpenDataLab
+### 2.5 OpenDataLab
 
 **平台特性**：中文多模态数据集平台
 **访问地址**：https://opendatalab.com/
@@ -126,7 +126,7 @@ dataset = load_dataset("imdb")  # 直接加载数据集
 
 
 
-## 2.6 ModelScope 魔塔社区
+### 2.6 ModelScope 魔塔社区
 
 **平台特性**：一站式 AI 开发平台
 **访问地址**：https://modelscope.cn/datasets
@@ -151,7 +151,7 @@ dataset = load_dataset("imdb")  # 直接加载数据集
 
 
 
-## 2.7 开源协议注意事项
+### 2.7 开源协议注意事项
 
 **常见许可类型**：
 
@@ -185,8 +185,6 @@ dataset = load_dataset("imdb", split="train[:1000]")  # 加载前1000条样本
 
 
 
-
-
 ## 3 基于垂直领域文献合成数据集
 
 ### 3.1 目前的做法
@@ -199,8 +197,6 @@ dataset = load_dataset("imdb", split="train[:1000]")  # 加载前1000条样本
 * 
 
 ### 3.2 easy-dataset 开源框架
-
- [GitHub 地址 easy-dataset](https://github.com/ConardLi/easy-dataset/blob/main/README.zh-CN.md)
 
 ​        Easy Dataset 是一个专为创建大型语言模型（LLM）微调数据集而设计的应用程序。它提供了直观的界面，用于上传特定领域的文件，智能分割内容，生成问题，并为模型微调生成高质量的训练数据。
 
@@ -304,8 +300,6 @@ pip install -r requirements.txt
 
 
 
-
-
 #### 3.3.3 补充上下文
 
 使用enhanceBasic目录中脚本：
@@ -347,11 +341,10 @@ TypeError: Can't instantiate abstract class RunnableSerializable[OutputFixingPar
 
 
 
-请运行
+请运行：
 
 ```bash
 pip install --upgrade langchain langchain-core pydantic
-
 
 ```
 
@@ -383,14 +376,6 @@ python generate_by_hotel_name.py
 
 
 
-参考：
-
-[数据增强说明视频](https://www.bilibili.com/video/BV13aQJY5E1H/?spm_id_from=333.337.search-card.all.click&vd_source=53c8f153d9fee3c0f48b1468ba6b99f5)
-
-[源代码GitHub地址](https://github.com/NanGePlus/DataAugmentationTest)
-
-
-
 ## 4 总结
 
 ​        至此，大家脑海中应已初步形成一个概念：微调数据来源丰富多样，我们需依据具体业务场景，灵活选用一种或多种数据来源，以此训练出性能卓越的微调模型。
@@ -414,7 +399,11 @@ LLM 模型微调数据集怎么整理 ?
 
 参考：
 
+ [GitHub 地址 easy-dataset](https://github.com/ConardLi/easy-dataset/blob/main/README.zh-CN.md)
+
 [【微调教程】10分钟教会你构建模型微调训练数据集，将领域文献转化成私有数据！](https://www.bilibili.com/video/BV1piQwYmEb3/?spm_id_from=333.337.search-card.all.click&vd_source=53c8f153d9fee3c0f48b1468ba6b99f5)
 
+[数据增强说明视频](https://www.bilibili.com/video/BV13aQJY5E1H/?spm_id_from=333.337.search-card.all.click&vd_source=53c8f153d9fee3c0f48b1468ba6b99f5)
 
+[源代码GitHub地址](https://github.com/NanGePlus/DataAugmentationTest)
 
